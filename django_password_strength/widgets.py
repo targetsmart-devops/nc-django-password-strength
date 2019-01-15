@@ -1,8 +1,7 @@
-
 from django.forms import PasswordInput
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
-import enum
+from enum import Enum
 
 
 class PasswordStrengthInputSettings(object):
@@ -82,7 +81,7 @@ class PasswordStrengthInput(PasswordInput):
         if self.settings.show_suggestions:
             markup += suggestions_markup
         markup += """</div>"""
-        
+
         try:
             self.attrs['class'] = '%s password_strength'.strip() % self.attrs['class']
         except KeyError:
@@ -139,7 +138,7 @@ class PasswordConfirmationInput(PasswordInput):
 
 class ProgressBarUI(object):
 
-    class Styles(enum.Enum):
+    class Styles(Enum):
         Bootstrap = 0,
         jQueryUI = 1,
 
